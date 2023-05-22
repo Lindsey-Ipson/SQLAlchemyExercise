@@ -23,6 +23,12 @@ class User(db.Model):
                           unique=False,
                           default='https://cdn-icons-png.flaticon.com/512/727/727399.png?w=1060&t=st=1684565167~exp=1684565767~hmac=7044db93169614d3b84113687f6c3dc9ca966ba7cf924aa49d77d01a4ea2e877')
     
+    @property
+    def full_name(self):
+        """Return user's full name"""
+
+        return f"{self.first_name} {self.last_name}"
+    
 
 def connect_db(app):
     """Connect to database."""
