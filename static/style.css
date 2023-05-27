@@ -1,0 +1,62 @@
+/* Reset default styles */
+nav {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  
+  /* Navigation bar styles */
+nav {
+  background-color: #f2f2f2;
+  height: 70px;
+}
+
+nav > * {
+    /* CSS rules for all direct children of nav */
+    margin: 0;
+  }
+  
+
+.navbar-brand {
+  display: inline-block;
+  color: black;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 10px;
+}
+
+.navbar-nav {
+  display: inline-block;
+}
+
+.nav-item {
+  display: inline-block;
+  padding: 15px;
+}
+
+.nav-link {
+  display: inline-block;
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+}
+
+.nav-btn {
+  display: inline-block;
+  padding: 10px 15px;
+  background-color: rgb(119, 115, 115);
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 5px;
+}
+
+.nav-btn:hover {
+  background-color: #555;
+}
+  
+img.profile {
+    max-width: 300px;
+    max-height: 300px;
+}
