@@ -1,8 +1,0 @@
-
-To Do
-Add buttons to users and tags on homepage - done
-Add button for tags on users oage - done
-Change order of recent posts - done
-CSS styles for tags - done
-fix cancel buttons - done
-add requirements add venv to git ignore
