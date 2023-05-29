@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% extends 'general/base.html' %}
 
 {% block title %} Users List {% endblock %}
 
@@ -12,6 +12,7 @@
 <br>
 
 <form>
+    <button class="cancel" formaction="/users" formmethod="GET">Cancel</button>
     <button class="edit" formaction="/users/{{ user.id }}/edit" formmethod="GET">Edit User
     </button>
     <button class="delete" formaction="/users/{{ user.id }}/delete" formmethod="POST">Delete User

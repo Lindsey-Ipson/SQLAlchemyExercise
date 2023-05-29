@@ -1,21 +1,23 @@
+* {
+  font-family: 'Inconsolata', monospace;
+}
+
 /* Reset default styles */
 nav {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-  }
-  
-  /* Navigation bar styles */
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* Navigation bar styles */
 nav {
-  background-color: #f2f2f2;
+  background-color: #c3daed; 
   height: 70px;
 }
 
 nav > * {
-    /* CSS rules for all direct children of nav */
-    margin: 0;
-  }
-  
+  margin: 0;
+}
 
 .navbar-brand {
   display: inline-block;
@@ -45,7 +47,7 @@ nav > * {
 .nav-btn {
   display: inline-block;
   padding: 10px 15px;
-  background-color: rgb(119, 115, 115);
+  background-color: rgb(52, 45, 100);
   color: #fff;
   text-decoration: none;
   font-weight: bold;
@@ -55,8 +57,73 @@ nav > * {
 .nav-btn:hover {
   background-color: #555;
 }
-  
-img.profile {
-    max-width: 300px;
-    max-height: 300px;
+
+li.nav-item .nav-button {
+  background-color: blue;
 }
+
+/* Images */
+
+img.profile {
+  max-width: 300px;
+  max-height: 300px;
+}
+
+/* Tags */
+
+.tag {
+  background-color: rgb(69, 69, 197);
+  color: white;
+  font-size: smaller;
+  border-radius: 5px;
+  padding: 3px;
+  text-decoration: none;
+}
+
+a.tag-link:link {
+  color: white;
+  text-decoration: none;
+}
+
+a.tag-link:visited {
+  color: white;
+  text-decoration: none;
+}
+
+/* Homepage */
+
+.post {
+  margin: 50px 5px;
+}
+
+p.home-post-content {
+  font-size: 1.15rem;
+}
+
+p.home-post-by {
+  font-size: .9rem;
+}
+
+p.msg {
+  background-color: rgb(30, 61, 30);
+  color: white;
+  padding: 15px 10px;
+}
+
+/* Media queries */
+@media only screen and (max-width: 768px) {
+  nav {
+    height: auto;
+    text-align: center;
+  }
+
+  .navbar-nav {
+    display: inline-block;
+  }
+
+  .nav-item {
+    display: block;
+    padding: 10px;
+  }
+}
+

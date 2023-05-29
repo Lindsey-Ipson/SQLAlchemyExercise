@@ -1,0 +1,47 @@
+{% extends 'general/base.html' %}
+
+{% block title %} {{post.title}} {% endblock %}
+
+{% block content %}
+
+<h1>{{post.title}}</h1>
+
+<p>{{post.content}}</p>
+
+<i>By {{user.full_name}}</i>
+
+<br>
+
+<small>{{post.friendly_date}}</small>
+
+<br>
+<br>
+
+<div class="tags">
+{% for tag in post.tags %}
+<span class="tag"><a class="tag-link" href="/tags/{{tag.id}}">{{tag.name}}</a></span>
+&nbsp; 
+{% endfor %}
+</div>
+
+<br>
+<br>
+
+<button type="button" class="cancel" onclick="window.location.href='/recent-posts'">Back Home</button>
+
+<button type="button" class="cancel" onclick="window.location.href='/users/{{post.user.id}}'">See Author</button>
+
+<button class="edit" onclick="window.location.href='/posts/{{post.id}}/edit'">Edit</button>
+
+<br>
+<br>
+
+<form action="/posts/{{post.id}}/delete" method="post">
+  <button type="submit" class="delete">Delete</button>
+</form>
+
+{% endblock %}
+
+
+
+

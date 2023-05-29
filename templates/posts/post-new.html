@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% extends 'general/base.html' %}
 
 {% block title %} New Post Form {% endblock %}
 
@@ -11,6 +11,19 @@
     <input type="text" name="title">
     <label for="content">Content</label>
     <input type="text" name="content">
+
+    <br>
+    <br>
+
+    {% for tag in tags %}
+    <input type="checkbox" value="{{tag.id}}" id="tag_{{tag.id}}" name="tags">
+    <label for="tag_{{tag.id}}">{{tag.name}}</label>
+    &nbsp; 
+    {% endfor %}
+
+    <br>
+    <br>
+
     <button type="button" class="cancel" onclick="window.location.href='/users'">Cancel</button>
     <button type="submit">Add</button>
 </form>

@@ -1,4 +1,4 @@
-"""Models for Blogly."""
+"""Models for Dog Blog"""
 
 from flask_sqlalchemy import SQLAlchemy
 import datetime
@@ -15,9 +15,9 @@ class User(db.Model):
                    autoincrement=True
                    )
     first_name = db.Column(db.String(40),
-                     nullable=False)
+                        nullable=False)
     last_name = db.Column(db.String(40),
-                     nullable=False)
+                    nullable=False)
     img_url = db.Column(db.String,
                           nullable=True,
                           unique=False,
@@ -40,8 +40,8 @@ class Post(db.Model):
 
     __tablename__ = 'posts'
 
-    id = db.Column(db.Integer, primary_key = True, 
-                   autoincrement = True)
+    id = db.Column(db.Integer, primary_key=True, 
+                   autoincrement=True)
     
     title = db.Column(db.String,
                      nullable=False)
@@ -62,8 +62,44 @@ class Post(db.Model):
         return f"Post {self.id} {self.title} {self.content} {self.created_at} {self.user_id}"
     
 
+class Tag(db.Model):
+    """Blog tag"""
+
+    __tablename__ = 'tags'
+
+    id = db.Column(db.Integer,
+                   primary_key=True, 
+                   autoincrement=True)
+    name = db.Column(db.String,
+                     nullable=False,
+                     unique=True)
+    
+    posts = db.relationship('Post', secondary='posts_tags', backref='tags')
+    
+    def __repr__(self):
+        return f"Tag {self.id} {self.name}"
+    
+
+class PostTag(db.Model):
+    """Post-Tag relationship"""
+
+    __tablename__ = 'posts_tags'
+
+    post_id = db.Column(db.Integer,
+                        db.ForeignKey('posts.id'),
+                        primary_key=True)
+    
+    tag_id = db.Column(db.Integer,
+                       db.ForeignKey('tags.id'),
+                       primary_key=True)
+    
+    def __repr__(self):
+        return f"PostTag {self.post_id} {self.tag_id}"
+
 def connect_db(app):
     """Connect to database."""
     db.app = app
     db.init_app(app)
     return app
+
+
